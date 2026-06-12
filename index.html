@@ -913,12 +913,13 @@ async function handleExperienceSubmit(e) {
     }
 
     // Show thank you message
-    form.innerHTML = `
+form.innerHTML = `
       <div style="padding: 32px 0;">
         <p style="font-size: 20px; font-weight: 600; color: #FFFFF3; margin-bottom: 12px;">Thank you for sharing.</p>
-        <p style="color: rgba(255,255,243,0.73); max-width: 480px; line-height: 1.75;">We appreciate your openness to share. Your experience will help shape what Kiin becomes and may help someone else going through a similar situation.</p>
+        <p style="color: rgba(255,255,243,0.73); max-width: 480px; line-height: 1.75;">Your experience has been received. It will help shape what Kiin becomes — and may help someone else going through something similar.</p>
       </div>
     `;
+    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
   } catch (err) {
     // Show error state
     submitBtn.disabled = false;
