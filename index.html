@@ -87,6 +87,12 @@ nav {
   line-height: 1;
 }
 
+.nav-right-group {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -104,38 +110,52 @@ nav {
 .nav-links a:hover { color: #263019; }
 
 .nav-cta {
-  background: #FEBE0A !important;
+  background: #C3D0B8 !important;
   color: #263019 !important;
   padding: 6px 16px;
   border-radius: 6px;
+  border: none;
   font-weight: 600 !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
+  text-decoration: none;
   height: 34px;
   display: inline-flex !important;
   align-items: center;
-  transition: background 0.18s, transform 0.1s;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 0;
+  padding: 0;
+  opacity: 0;
+  transition: max-width 0.35s, padding 0.35s, opacity 0.3s, background 0.18s, transform 0.1s;
 }
-.nav-cta:hover { box-shadow: 0 0 0 1px rgba(254,190,10,1.0), 0 0 3px 1px rgba(254,190,10,0.6), 0 0 6px 2px rgba(254,190,10,0.15), 0 0 10px 3px rgba(254,190,10,0.04); }
+.nav-cta.visible { max-width: 140px; padding: 6px 16px; opacity: 1; }
+.nav-cta:hover { box-shadow: 0 0 0 1px rgba(195,208,184,1.0), 0 0 3px 1px rgba(195,208,184,0.6), 0 0 6px 2px rgba(195,208,184,0.15); }
 .nav-cta:active { transform: scale(0.98); }
 
 .nav-cta-mobile {
   display: none;
-  background: #FEBE0A;
+  background: #C3D0B8;
   color: #263019;
-  padding: 6px 16px;
+  padding: 0;
   border-radius: 6px;
+  border: none;
   font-family: 'Source Sans 3', sans-serif;
   font-weight: 600;
   font-size: 16px;
   height: 34px;
   align-items: center;
   text-decoration: none;
-  transition: background 0.18s;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 0.35s, padding 0.35s, opacity 0.3s, background 0.18s;
 }
+.nav-cta-mobile.visible { max-width: 120px; padding: 6px 16px; opacity: 1; }
 
 /* ── Hero ── */
 #hero {
-  padding: 74px 0 80px;
+  padding: 54px 0 100px;
 }
 
 .hero-headline {
@@ -352,18 +372,50 @@ nav {
   margin-bottom: 32px;
 }
 
+.q-lead {
+  font-family: 'Source Serif 4', serif;
+  font-size: 28px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.25;
+  color: #FFFFF3;
+  max-width: 520px;
+  letter-spacing: -0.015em;
+  margin-bottom: 40px;
+}
+
+.q-intro {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255,255,243, 0.85);
+  max-width: 560px;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.q-helper {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255,255,243, 0.65);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
 .q-form { max-width: 600px; }
 
 .q-item { margin-bottom: 22px; }
 
 .q-label {
   display: block;
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  font-family: 'Source Serif 4', serif;
+  font-size: 22px;
+  font-weight: 600;
   color: rgba(255,255,243, 1.0);
-  line-height: 1.55;
-  margin-bottom: 8px;
+  line-height: 1.35;
+  margin-bottom: 12px;
+  letter-spacing: -0.015em;
 }
 
 .q-textarea {
@@ -393,6 +445,41 @@ nav {
   line-height: 1.5;
 }
 
+.q-textarea-wrap {
+  position: relative;
+}
+
+.q-textarea-inner-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  color: rgba(38, 48, 25, 0.60);
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.q-textarea-light, .q-input-light {
+  width: 100%;
+  background: rgba(195, 208, 184, 0.15);
+  border: 1px solid rgba(195, 208, 184, 0.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,243, 0.85);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  line-height: 1.6;
+  margin-top: 4px;
+}
+.q-textarea-light { resize: vertical; min-height: 52px; }
+.q-input-light { }
+.q-textarea-light::placeholder, .q-input-light::placeholder { color: rgba(255,255,243,0.55); }
+.q-textarea-light:hover, .q-input-light:hover { border: 1px solid rgba(195, 208, 184, 0.55); background: rgba(195, 208, 184, 0.22); }
+.q-textarea-light:focus, .q-input-light:focus { outline: none; border: 1.5px solid #FEBE0A; background: #fff; color: #263019; box-shadow: 0 0 0 4px rgba(254, 190, 10, 0.20); }
+.q-textarea-light:focus::placeholder, .q-input-light:focus::placeholder { color: rgba(38,48,25,0.40); }
+
 .q-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -403,12 +490,27 @@ nav {
 .q-field-label {
   display: block;
   font-family: 'Source Sans 3', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 500;
   color: rgba(255,255,243, 1.0);
   margin-bottom: 6px;
+}
+
+.q-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: rgba(255,255,243, 0.50);
+}
+
+.q-field-label-soft {
+  display: block;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,243, 0.75);
+  margin-bottom: 2px;
 }
 
 .q-input {
@@ -443,6 +545,7 @@ nav {
   background-position: right 16px center;
   cursor: pointer;
 }
+.q-select:invalid { color: rgba(38, 48, 25, 0.60); }
 .q-select:hover { border: 1.5px solid #FEBE0A; background: #fff; }
 .q-select:focus { outline: none; border: 1.5px solid #FEBE0A; background: #fff; box-shadow: 0 0 0 4px rgba(254, 190, 10, 0.20); }
 
@@ -568,12 +671,12 @@ footer {
 @media (max-width: 600px) {
   .hero-headline { font-size: 32px; }
   .section-headline, .q-headline { font-size: 24px; }
+  .q-lead { font-size: 22px; }
   .q-meta { grid-template-columns: 1fr; }
-  .nav-links .nav-cta-li { display: list-item; }
-  .nav-links { display: none; }
+  .nav-right-group { display: none; }
   .nav-cta-mobile { display: inline-flex; }
   section { padding: 56px 0; }
-  #hero { padding: 56px 0 52px; }
+  #hero { padding: 36px 0 72px; }
   .btn-row .btn-primary,
   .btn-row .btn-secondary { width: 100%; }
 }
@@ -601,13 +704,15 @@ footer {
       </svg>
       <span class="nav-wordmark">Kiin</span>
     </a>
-    <ul class="nav-links">
-      <li><a href="#gap">The gap</a></li>
-      <li><a href="#founder">Our story</a></li>
-      <li><a href="#voice">Share yours</a></li>
-      <li><a href="#contact" class="nav-cta">Get in touch</a></li>
-    </ul>
-    <a href="#contact" class="nav-cta-mobile">Get in touch</a>
+    <div class="nav-right-group">
+      <ul class="nav-links">
+        <li><a href="#gap">The gap</a></li>
+        <li><a href="#founder">Our story</a></li>
+        <li><a href="#voice">Share yours</a></li>
+      </ul>
+      <a href="mailto:hello@kiin.health" class="nav-cta" aria-label="Email the founder" title="Email the founder">Email us</a>
+    </div>
+    <a href="mailto:hello@kiin.health" class="nav-cta-mobile" aria-label="Email the founder" title="Email the founder">Email us</a>
   </div>
 </nav>
 
@@ -622,9 +727,9 @@ footer {
       Harmful assumptions no one thought to surface.
     </div>
     <p class="hero-close">Kiin is seeking to close that gap.</p>
-    <div class="btn-row">
+    <div class="btn-row" id="hero-buttons">
       <a href="#voice" class="btn-primary">Share your experience</a>
-      <a href="#contact" class="btn-secondary">Get in touch</a>
+      <a href="mailto:hello@kiin.health" class="btn-secondary">Email us</a>
     </div>
   </div>
 </section>
@@ -669,7 +774,7 @@ footer {
 
     <p class="founder-body">A year passed after my mom&rsquo;s successful surgery with monthly check&#8209;ups that flagged nothing. She collapsed one day and at that point, tumors were found in her brain, lungs, bones, and liver.</p>
 
-    <p class="founder-body">She passed. What hit me was not only the loss, but the profound sense of failure I carried. As a daughter, as a scientist, and part of a family in a system none of us truly understood. The miscommunications. The things we did not know how to say to each other. The weight of being caregivers without any real preparation for what that truly meant, until it was too late.</p>
+    <p class="founder-body">She passed. What hit me was not only the loss, but the profound sense of failure I carried. As a daughter, as a scientist, and part of a family navigating a system we didn't fully understand. The miscommunications. The things we did not know how to say to each other. The weight of being caregivers without any real preparation for what that truly meant, until it was too late.</p>
 
     <p class="founder-body">Everyone&rsquo;s experience is unique. But the pattern is not. Patients carrying things they never found a reason or a way to say. Families holding knowledge they did not know was worth sharing. Systems trying to treat diseases while whole persons fall through the cracks.</p>
 
@@ -686,44 +791,33 @@ footer {
 <!-- ── Your Voice ── -->
 <section id="voice">
   <div class="container">
+    <h2 class="q-lead">What if people who most urgently need support are also the ones least likely to express their needs?</h2>
     <p class="section-label">Your voice</p>
-    <h2 class="q-headline">What if people who most urgently need support are also the ones least likely to speak up?</h2>
-    <p class="q-sub">If you've faced a serious illness, whether as a patient, a caregiver, a friend, or someone who has lost a person they love, and never quite found the right moment or place to say what you've carried, this is for you.</p>
-    <p class="q-sub-emphasis">Sharing your experience could help someone else.</p>
+    <p class="q-intro">If something in this page resonated with you, we would be grateful to hear what felt missing in your experience. Your response can be brief and anonymous.</p>
 
     <form class="q-form" id="experience-form" onsubmit="handleExperienceSubmit(event)">
 
-      <div class="q-item">
-        <label class="q-field-label" for="q-role">Your role</label>
-        <select class="q-select" id="q-role" name="role" aria-required="true">
-          <option value="" disabled selected>Select one</option>
-          <option value="Patient">Patient</option>
-          <option value="Caregiver">Caregiver</option>
-          <option value="Bereaved family">Bereaved family</option>
-          <option value="Friend">Friend</option>
-          <option value="Clinician">Clinician</option>
-          <option value="Other">Other</option>
-        </select>
+      <div class="q-item" style="margin-bottom: 8px;">
+        <label class="q-label" for="q1">What felt missing in your experience?</label>
+        <div class="q-textarea-wrap">
+          <textarea class="q-textarea" id="q1" name="q1" placeholder="This could be something you wish had been said, asked, known, or shared. It could also be an emotion or need you did not have the chance or channel to express." rows="5" required aria-required="true" oninput="toggleInnerHint(this)"></textarea>
+          <span class="q-textarea-inner-hint" id="q1-inner-hint">There are no wrong answers. Even one sentence helps.</span>
+        </div>
       </div>
 
-      <div class="q-item">
-        <label class="q-label" for="q1">What do you wish you'd had, or known, earlier?</label>
-        <textarea class="q-textarea" id="q1" name="q1" placeholder="There are no wrong answers. Even one sentence helps." rows="5" aria-required="true"></textarea>
-        <p class="q-hint">*If possible, please include above what difference you think it would have made.</p>
+      <div class="q-item" style="margin-bottom: 8px;">
+        <textarea class="q-textarea-light" id="q2" name="q2" rows="3" placeholder="If you'd like, say a little more about the situation or moment that made you feel that way. (Optional)"></textarea>
+        <p class="q-note" style="margin-top: 6px;">You may respond anonymously, or leave your email address if you are open to connecting.</p>
       </div>
 
       <div style="margin-bottom: 20px;">
-        <label class="q-field-label" for="q-email">Email (optional, if you'd like to stay in touch)</label>
-        <input class="q-input" id="q-email" name="email" type="email" placeholder="your@email.com" style="max-width: 320px;">
+        <label class="q-field-label" for="q-email">Email <span class="q-optional">(optional)</span></label>
+        <input class="q-input" id="q-email" name="email" type="email" placeholder="your@email.com">
+        <p class="q-note" style="margin-top: 6px;">Only the founder will see your email address. She may send a personal thank-you note or an invitation to connect. Your email address will not be shared with anyone else.<br>No marketing, no mailing list, and no obligation.</p>
       </div>
 
-      <button type="submit" class="btn-yellow">Share</button>
-
-      <p class="q-note" style="margin-top: 24px;">Everything shared with us is held in utmost confidence and kept anonymous.</p>
-      <p class="q-note-strong">Your lived experience will be used to help people who may be facing similar situations.</p>
+      <button type="submit" class="btn-yellow">Share your experience</button>
     </form>
-
-    <p class="q-more">If you have the heart and additional time, we would deeply appreciate learning more about your experience. <a href="mailto:hello@kiin.health?subject=I'd like to share more — Kiin">Reach out to us directly</a>.</p>
   </div>
 </section>
 
@@ -761,19 +855,83 @@ footer {
 </footer>
 
 <script>
-function handleExperienceSubmit(e) {
+var navCtas = document.querySelectorAll('.nav-cta, .nav-cta-mobile');
+var heroButtons = document.getElementById('hero-buttons');
+
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    navCtas.forEach(function(cta) {
+      if (entry.isIntersecting) {
+        cta.classList.remove('visible');
+      } else {
+        cta.classList.add('visible');
+      }
+    });
+  });
+}, { threshold: 0 });
+
+observer.observe(heroButtons);
+
+function toggleInnerHint(textarea) {
+  var hint = document.getElementById('q1-inner-hint');
+  hint.style.opacity = textarea.value.length > 0 ? '0' : '1';
+}
+
+const SUPABASE_URL = 'https://sqaokwmbgoqvdilszcdw.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_ZDcO7ACNSTVivYQ4XMNBgg_P1Z8dzK-';
+
+async function handleExperienceSubmit(e) {
   e.preventDefault();
   const form = e.target;
-  const data = {
-    role: form.role.value,
-    experience: form.q1.value,
-    email: form.email.value
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  // Disable button and show loading state
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  const payload = {
+    q1: form.q1.value.trim(),
+    q2: form.q2.value.trim() || null,
+    email: form.email.value.trim() || null,
+    form_version: 'v1'
   };
-  const body = Object.entries(data)
-    .filter(([k, v]) => v && v.trim())
-    .map(([k, v]) => `${k.toUpperCase()}:\n${v}`)
-    .join('\n\n');
-  window.location.href = `mailto:hello@kiin.health?subject=Shared Experience — Kiin&body=${encodeURIComponent(body)}`;
+
+  try {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/patient-website_submissions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      throw new Error('Submission failed');
+    }
+
+    // Show thank you message
+    form.innerHTML = `
+      <div style="padding: 32px 0;">
+        <p style="font-size: 20px; font-weight: 600; color: #263019; margin-bottom: 12px;">Thank you for sharing.</p>
+        <p style="color: rgba(38,48,25,0.73); max-width: 480px; line-height: 1.75;">Your experience has been received. It will help shape what Kiin becomes — and may help someone else going through something similar.</p>
+      </div>
+    `;
+  } catch (err) {
+    // Show error state
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Share your experience';
+    const errorMsg = form.querySelector('#submit-error');
+    if (!errorMsg) {
+      const p = document.createElement('p');
+      p.id = 'submit-error';
+      p.style.cssText = 'color: #c0392b; margin-top: 12px; font-size: 15px;';
+      p.textContent = 'Something went wrong. Please try again, or email us directly at hello@kiin.health.';
+      submitBtn.after(p);
+    }
+  }
 }
 </script>
 
