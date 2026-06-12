@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiin — Much of what patients and families go through never reaches the people who could help</title>
+<meta name="description" content="Kiin is being built to close the gap between what patients and families live through and what the people who could help actually see.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ── Reset & base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  line-height: 1.75;
+  color: #263019;
+  background: #FFFFF3;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Source Serif 4 is ONLY for: brand wordmark "Kiin" + pull quotes */
+.wordmark { font-family: 'Source Serif 4', serif; }
+.pull-quote-text { font-family: 'Source Serif 4', serif; font-style: italic; }
+
+/* ── Layout ── */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: #FEBE0A;
+  color: #263019;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 200;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ── Nav ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFF3;
+  padding: 16px 0;
+}
+
+.nav-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+}
+
+.nav-wordmark {
+  font-family: 'Source Serif 4', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #263019;
+  line-height: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(38, 48, 25, 0.73);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #263019; }
+
+.nav-cta {
+  background: #FEBE0A !important;
+  color: #263019 !important;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  height: 34px;
+  display: inline-flex !important;
+  align-items: center;
+  transition: background 0.18s, transform 0.1s;
+}
+.nav-cta:hover { box-shadow: 0 0 0 1px rgba(254,190,10,1.0), 0 0 3px 1px rgba(254,190,10,0.6), 0 0 6px 2px rgba(254,190,10,0.15), 0 0 10px 3px rgba(254,190,10,0.04); }
+.nav-cta:active { transform: scale(0.98); }
+
+.nav-cta-mobile {
+  display: none;
+  background: #FEBE0A;
+  color: #263019;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  height: 34px;
+  align-items: center;
+  text-decoration: none;
+  transition: background 0.18s;
+}
+
+/* ── Hero ── */
+#hero {
+  padding: 74px 0 80px;
+}
+
+.hero-headline {
+  font-family: 'Source Serif 4', serif;
+  font-size: 40px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.2;
+  color: #263019;
+  margin-bottom: 24px;
+  max-width: 620px;
+  letter-spacing: -0.015em;
+}
+
+.hero-sub {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(38, 48, 25, 0.73);
+  max-width: 520px;
+  line-height: 1.72;
+  margin-bottom: 8px;
+}
+
+.hero-lines {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(38, 48, 25, 0.73);
+  max-width: 520px;
+  line-height: 2.0;
+  margin-bottom: 28px;
+}
+
+.hero-close {
+  font-size: 18px;
+  font-weight: 500;
+  color: #263019;
+  max-width: 520px;
+  line-height: 1.72;
+  margin-bottom: 36px;
+}
+
+/* ── Buttons ── */
+.btn-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.btn-row .btn-primary,
+.btn-row .btn-secondary {
+  width: 220px;
+  text-align: center;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #FEBE0A;
+  color: #263019;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.1s;
+}
+.btn-primary:hover { box-shadow: 0 0 0 1px rgba(254,190,10,1.0), 0 0 3px 1px rgba(254,190,10,0.6), 0 0 6px 2px rgba(254,190,10,0.15), 0 0 10px 3px rgba(254,190,10,0.04); }
+.btn-primary:active { transform: scale(0.98); }
+
+/* Sage secondary button */
+.btn-secondary {
+  display: inline-block;
+  background: #C3D0B8;
+  color: #263019;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 13px 28px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.1s;
+}
+.btn-secondary:hover { box-shadow: 0 0 0 1px rgba(254,190,10,1.0), 0 0 3px 1px rgba(254,190,10,0.6), 0 0 6px 2px rgba(254,190,10,0.15), 0 0 10px 3px rgba(254,190,10,0.04); }
+.btn-secondary:active { transform: scale(0.98); }
+
+/* ── Section label ── */
+.section-label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3F5338;
+  margin-bottom: 14px;
+}
+
+/* ── Gap section ── */
+#gap { background: #fff; }
+
+.section-headline {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #263019;
+  margin-bottom: 20px;
+  max-width: 560px;
+  letter-spacing: -0.015em;
+}
+
+.body-text {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(38, 48, 25, 0.73);
+  line-height: 1.65;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.body-text-dark {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #263019;
+  line-height: 1.65;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+/* ── Founder section ── */
+#founder { background: #FFF5D6; }
+
+.founder-body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(38, 48, 25, 0.73);
+  line-height: 1.65;
+  max-width: 600px;
+  margin-bottom: 18px;
+}
+
+.founder-body-strong {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #263019;
+  line-height: 1.65;
+  max-width: 600px;
+  margin-bottom: 18px;
+}
+
+.founder-body-standalone {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #263019;
+  line-height: 1.65;
+  max-width: 600px;
+  margin-bottom: 18px;
+  margin-top: 28px;
+}
+
+.founder-sig {
+  font-family: 'Source Serif 4', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(38, 48, 25, 0.48);
+  margin-top: 28px;
+}
+
+/* ── Voice/Questionnaire section ── */
+#voice {
+  background: #3F5338;
+  border-bottom: none;
+}
+
+#voice .section-label { color: rgba(255,255,243, 0.80); }
+
+.q-headline {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: rgba(255,255,243, 1.0);
+  line-height: 1.25;
+  margin-bottom: 14px;
+  max-width: 520px;
+  letter-spacing: -0.015em;
+}
+
+.q-sub {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255,255,243, 0.80);
+  max-width: 560px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.q-sub-emphasis {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255,255,243, 1.0);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.q-form { max-width: 600px; }
+
+.q-item { margin-bottom: 22px; }
+
+.q-label {
+  display: block;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255,255,243, 1.0);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+.q-textarea {
+  width: 100%;
+  background: #FFFFF3;
+  border: 1px solid rgba(195,208,184,0.5);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  color: #263019;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.2s, background 0.2s;
+  line-height: 1.6;
+}
+.q-textarea::placeholder { color: rgba(38,48,25,0.60); }
+.q-textarea:hover { border: 1.5px solid #FEBE0A; background: #fff; }
+.q-textarea:focus { outline: none; border: 1.5px solid #FEBE0A; background: #fff; box-shadow: 0 0 0 4px rgba(254, 190, 10, 0.20); }
+
+.q-hint {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,243, 0.70);
+  font-style: italic;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.q-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.q-field-label {
+  display: block;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,243, 1.0);
+  margin-bottom: 6px;
+}
+
+.q-input {
+  width: 100%;
+  background: #FFFFF3;
+  border: 1px solid rgba(195,208,184,0.5);
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  color: #263019;
+  transition: border-color 0.2s, background 0.2s;
+}
+.q-input::placeholder { color: rgba(38,48,25,0.60); }
+.q-input:hover { border: 1.5px solid #FEBE0A; background: #fff; }
+.q-input:focus { outline: none; border: 1.5px solid #FEBE0A; background: #fff; box-shadow: 0 0 0 4px rgba(254, 190, 10, 0.20); }
+
+.q-select {
+  width: 100%;
+  background: #FFFFF3;
+  border: 1px solid rgba(195,208,184,0.5);
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  color: #263019;
+  transition: border-color 0.2s, background 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23263019' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+.q-select:hover { border: 1.5px solid #FEBE0A; background: #fff; }
+.q-select:focus { outline: none; border: 1.5px solid #FEBE0A; background: #fff; box-shadow: 0 0 0 4px rgba(254, 190, 10, 0.20); }
+
+.q-note {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,243, 0.75);
+  line-height: 1.6;
+  margin-top: 14px;
+}
+
+.q-note-strong {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,243, 0.80);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.q-more {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,243, 0.80);
+  line-height: 1.65;
+  margin-top: 32px;
+}
+
+.q-more a {
+  color: #FEBE0A;
+  text-decoration: none;
+  font-weight: 500;
+}
+.q-more a:hover { text-decoration: underline; }
+
+.btn-yellow {
+  display: inline-block;
+  background: #FEBE0A;
+  color: #263019;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.18s;
+  margin-top: 8px;
+}
+.btn-yellow:hover { box-shadow: 0 0 0 1px rgba(254,190,10,1.0), 0 0 3px 1px rgba(254,190,10,0.6), 0 0 6px 2px rgba(254,190,10,0.15), 0 0 10px 3px rgba(254,190,10,0.04); }
+
+/* ── Contact ── */
+#contact { background: #FFFFF3; }
+
+.contact-simple {
+  max-width: 520px;
+}
+
+.contact-simple p {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  color: rgba(38, 48, 25, 0.73);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.contact-simple a {
+  color: #3F5338;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+}
+.contact-simple a:hover { text-decoration: underline; }
+
+/* ── Footer ── */
+footer {
+  background: #263019;
+  padding: 36px 0;
+}
+
+.footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+.footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer-wordmark {
+  font-family: 'Source Serif 4', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFF3;
+  line-height: 1.2;
+}
+.footer-tagline {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 243, 0.70);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+.footer-right {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 243, 0.70);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .hero-headline { font-size: 32px; }
+  .section-headline, .q-headline { font-size: 24px; }
+  .q-meta { grid-template-columns: 1fr; }
+  .nav-links .nav-cta-li { display: list-item; }
+  .nav-links { display: none; }
+  .nav-cta-mobile { display: inline-flex; }
+  section { padding: 56px 0; }
+  #hero { padding: 56px 0 52px; }
+  .btn-row .btn-primary,
+  .btn-row .btn-secondary { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Skip to content for screen readers -->
+<a href="#hero" class="skip-link">Skip to content</a>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="Kiin home">
+      <svg viewBox="-2 -8 116 107" width="34" height="34" aria-hidden="true">
+        <defs><clipPath id="nav-clip"><circle cx="42" cy="55" r="42"/></clipPath></defs>
+        <circle cx="42" cy="55" r="42" fill="#C3D0B8"/>
+        <circle cx="83" cy="23" r="29" fill="#E0C768" clip-path="url(#nav-clip)"/>
+        <circle cx="83" cy="23" r="29" fill="#FEBE0A"/>
+      </svg>
+      <span class="nav-wordmark">Kiin</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#gap">The gap</a></li>
+      <li><a href="#founder">Our story</a></li>
+      <li><a href="#voice">Share yours</a></li>
+      <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta-mobile">Get in touch</a>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section id="hero">
+  <div class="container">
+    <h1 class="hero-headline">Much of what patients and families go through never reaches the people who could help.</h1>
+    <div class="hero-lines">
+      Fears they carry quietly.<br>
+      Changes only family can see.<br>
+      Questions no one knew to ask.<br>
+      Harmful assumptions no one thought to surface.
+    </div>
+    <p class="hero-close">Kiin is seeking to close that gap.</p>
+    <div class="btn-row">
+      <a href="#voice" class="btn-primary">Share your experience</a>
+      <a href="#contact" class="btn-secondary">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── The Gap ── -->
+<section id="gap">
+  <div class="container">
+    <p class="section-label">The Gap</p>
+
+    <p class="body-text-dark">Two people get the same diagnosis on the same day.</p>
+
+    <p class="body-text">One is open by nature. Voices what she feels, what she needs, what she's afraid of, without hesitation. She's almost never alone. Surrounded by people ready to listen, who check in on her daily, loved ones who take leave to accompany her to every appointment. She happens to have a friend who's been through it before. A doctor who shared her WhatsApp number, reachable any time she's afraid.</p>
+
+    <p class="body-text">The other is private by nature. Carries her fear quietly, the way she's carried everything: on her own, without asking, without needing to &ldquo;trouble&rdquo; anyone else. She is mostly alone, holds herself to unreal thresholds, enduring the way she's endured most other things, not knowing where to draw the line. Her doctor is doing their best in fifteen-minute windows, working only with what they're told.</p>
+
+    <p class="body-text">Both are doing everything &lsquo;right&rsquo;, the best way they naturally would.</p>
+
+    <p class="body-text">One happens to have the &lsquo;right&rsquo; personality, the &lsquo;right&rsquo; actively engaged support, the &lsquo;right&rsquo; doctor.</p>
+
+    <p class="body-text">The other is doing her best too, yet unknowingly slipping through a gap she and her loved ones didn't see coming.</p>
+
+    <p class="body-text">Right now, which path you get to be on isn't something you chose. Your personality. Who happens to be around you. Which doctor you happen to get.</p>
+
+    <p class="body-text-dark">None of it was chosen. Therein the gap.</p>
+  </div>
+</section>
+
+<!-- ── Founder ── -->
+<section id="founder">
+  <div class="container">
+    <p class="section-label">Behind Kiin</p>
+
+    <p class="founder-body" style="font-weight: 500; color: #263019;">It took thirty years to appreciate what science alone cannot fix.</p>
+
+    <p class="founder-body">I started as a biology and engineering student who became a scientist, convinced that science was the path to solving almost any problem, including curing disease. Decades later, after working across research, biomedical devices, commercial and clinical systems, I saw how long the road is from discovery to solutions that actually work for the people who need them.</p>
+
+    <p class="founder-body">The thing I could not solve with logic was not in a lab or a boardroom. It was at home.</p>
+
+    <p class="founder-body">My mother had cancer.</p>
+
+    <p class="founder-body">I read every one of her lab reports. I watched her put on a brave front, then collapse behind it. I saw some of it coming and had no way to stop it. Worse were the things I did not see coming: assumptions that worked against us without anyone noticing, incomplete truths that gave us false reassurance, a full picture that no one held because all of us: the family and the system, were exhausting everything we had, grasping at the wrong straws.</p>
+
+    <p class="founder-body">A year passed after my mom&rsquo;s successful surgery with monthly check&#8209;ups that flagged nothing. She collapsed one day and at that point, tumors were found in her brain, lungs, bones, and liver.</p>
+
+    <p class="founder-body">She passed. What hit me was not only the loss, but the profound sense of failure I carried. As a daughter, as a scientist, and part of a family in a system none of us truly understood. The miscommunications. The things we did not know how to say to each other. The weight of being caregivers without any real preparation for what that truly meant, until it was too late.</p>
+
+    <p class="founder-body">Everyone&rsquo;s experience is unique. But the pattern is not. Patients carrying things they never found a reason or a way to say. Families holding knowledge they did not know was worth sharing. Systems trying to treat diseases while whole persons fall through the cracks.</p>
+
+    <p class="founder-body">I cannot stop asking one question: what would it take for patients and families to truly be seen, as whole people, by those who care for them and by the systems trying to treat and support them?</p>
+
+    <p class="founder-body">Kiin is my commitment to formally pursue that question. I do not hold full answers, but am starting with a conviction to understand and to help bridge the gap I experienced first&#8209;hand, and a desire to listen and learn from others.</p>
+
+    <p class="founder-body-strong">If you have been through this, your experience will help shape what Kiin becomes.</p>
+
+    <p class="founder-sig">&mdash; Founder, Kiin</p>
+  </div>
+</section>
+
+<!-- ── Your Voice ── -->
+<section id="voice">
+  <div class="container">
+    <p class="section-label">Your voice</p>
+    <h2 class="q-headline">What if people who most urgently need support are also the ones least likely to speak up?</h2>
+    <p class="q-sub">If you've faced a serious illness, whether as a patient, a caregiver, a friend, or someone who has lost a person they love, and never quite found the right moment or place to say what you've carried, this is for you.</p>
+    <p class="q-sub-emphasis">Sharing your experience could help someone else.</p>
+
+    <form class="q-form" id="experience-form" onsubmit="handleExperienceSubmit(event)">
+
+      <div class="q-item">
+        <label class="q-field-label" for="q-role">Your role</label>
+        <select class="q-select" id="q-role" name="role" aria-required="true">
+          <option value="" disabled selected>Select one</option>
+          <option value="Patient">Patient</option>
+          <option value="Caregiver">Caregiver</option>
+          <option value="Bereaved family">Bereaved family</option>
+          <option value="Friend">Friend</option>
+          <option value="Clinician">Clinician</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <label class="q-label" for="q1">What do you wish you'd had, or known, earlier?</label>
+        <textarea class="q-textarea" id="q1" name="q1" placeholder="There are no wrong answers. Even one sentence helps." rows="5" aria-required="true"></textarea>
+        <p class="q-hint">*If possible, please include above what difference you think it would have made.</p>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label class="q-field-label" for="q-email">Email (optional, if you'd like to stay in touch)</label>
+        <input class="q-input" id="q-email" name="email" type="email" placeholder="your@email.com" style="max-width: 320px;">
+      </div>
+
+      <button type="submit" class="btn-yellow">Share</button>
+
+      <p class="q-note" style="margin-top: 24px;">Everything shared with us is held in utmost confidence and kept anonymous.</p>
+      <p class="q-note-strong">Your lived experience will be used to help people who may be facing similar situations.</p>
+    </form>
+
+    <p class="q-more">If you have the heart and additional time, we would deeply appreciate learning more about your experience. <a href="mailto:hello@kiin.health?subject=I'd like to share more — Kiin">Reach out to us directly</a>.</p>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Get in touch</p>
+    <h2 class="section-headline">If you're a clinician, researcher, or partner who sees this gap too, we'd love to hear from you.</h2>
+    <div class="contact-simple">
+      <p>We're exploring how lived experience can inform better care, from the conversations that happen at home to the systems that shape treatment. If that resonates, we'd welcome the conversation.</p>
+      <p><a href="mailto:hello@kiin.health">hello@kiin.health</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div style="display:flex; flex-direction:column; justify-content:flex-end;">
+        <div style="display:flex; align-items:flex-end; gap:10px; margin-bottom:3px;">
+          <svg viewBox="-2 -8 116 107" width="26" height="24" aria-hidden="true">
+            <defs><clipPath id="footer-clip"><circle cx="42" cy="55" r="42"/></clipPath></defs>
+            <circle cx="42" cy="55" r="42" fill="#C3D0B8"/>
+            <circle cx="83" cy="23" r="29" fill="#E0C768" clip-path="url(#footer-clip)"/>
+            <circle cx="83" cy="23" r="29" fill="#FEBE0A"/>
+          </svg>
+          <div class="footer-wordmark">Kiin</div>
+        </div>
+        <div class="footer-tagline">Closing the gap between what patients live through and what the system sees.</div>
+      </div>
+    </div>
+    <div class="footer-right">&copy; 2026 Kiin Pte Ltd</div>
+  </div>
+</footer>
+
+<script>
+function handleExperienceSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = {
+    role: form.role.value,
+    experience: form.q1.value,
+    email: form.email.value
+  };
+  const body = Object.entries(data)
+    .filter(([k, v]) => v && v.trim())
+    .map(([k, v]) => `${k.toUpperCase()}:\n${v}`)
+    .join('\n\n');
+  window.location.href = `mailto:hello@kiin.health?subject=Shared Experience — Kiin&body=${encodeURIComponent(body)}`;
+}
+</script>
+
+</body>
+</html>
