@@ -883,7 +883,7 @@ document.querySelectorAll('a[href="#voice"]').forEach(function(link) {
     e.preventDefault();
     var target = document.getElementById('voice');
     var navHeight = document.querySelector('nav').offsetHeight;
-    window.scrollTo({ top: target.offsetTop - navHeight - 32, behavior: 'smooth' });
+    window.scrollTo({ top: target.offsetTop - navHeight, behavior: 'smooth' });
   });
 });
 function toggleInnerHint(textarea) {
