@@ -883,7 +883,8 @@ document.querySelectorAll('a[href="#voice"]').forEach(function(link) {
     e.preventDefault();
     var target = document.getElementById('voice');
     var navHeight = document.querySelector('nav').offsetHeight;
-    window.scrollTo({ top: target.offsetTop - navHeight - 48, behavior: 'smooth' });
+    var targetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 48;
+    window.scrollTo({ top: targetTop, behavior: 'smooth' });
   });
 });
 function toggleInnerHint(textarea) {
