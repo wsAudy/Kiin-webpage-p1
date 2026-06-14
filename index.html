@@ -903,7 +903,7 @@ async function handleExperienceSubmit(e) {
   };
 
   try {
-    const response = await fetch(`${SUPABASE_URL}/rest/v1/patient-website_submissions`, {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/website_submissions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
